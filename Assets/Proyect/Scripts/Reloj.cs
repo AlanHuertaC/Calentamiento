@@ -13,13 +13,14 @@ public class Reloj : MonoBehaviour
 
     private Text myText;
     private float TiempoFrameConTiempoScale = 0f;
-    private float tiempoMostrarEnSegundos = 0F;
+    public float tiempoMostrarEnSegundos = 0F;
     private float escalaDeTiempoPausar, escalaDeTiempoInicial;
     private bool EstaPausado = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        tiempoInicial = 0;
         //Escala de Tiempo Original
         escalaDeTiempoInicial = escalaDeTiempo;
         myText = GetComponent<Text>();

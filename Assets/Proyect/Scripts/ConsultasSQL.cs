@@ -74,16 +74,16 @@ public class ConsultasSQL
         
     }
 
-    public void insertTratamiento(string tipoTratamiento, string duracion, string duraciontotal,  string idPaciente, string idEspecialista)
+    public void insertTratamiento(string tipoTratamiento, string puntuacion, string duraciontotal,  string idPaciente, string idEspecialista)
     {
         string monthVar = System.DateTime.Now.ToString("yyyy-MM-dd");
         ConexionBD conexion = new ConexionBD();
         MySqlConnection conn = conexion.getConnection();
         MySqlCommand cmd = conn.CreateCommand();
 
-        cmd.CommandText = "INSERT INTO Tratamiento (TipoDeTratamiento,duracion,duraciontotal,fecha,Paciente_idPaciente,Especialista_idEspecialista) VALUES(?TipoDeTratamiento,?duracion,?duraciontotal,?fecha,?Paciente_idPaciente,?Especialista_idEspecialista)";
+        cmd.CommandText = "INSERT INTO Tratamiento (TipoDeTratamiento,puntuacion,duraciontotal,fecha,Paciente_idPaciente,Especialista_idEspecialista) VALUES(?TipoDeTratamiento,?puntuacion,?duraciontotal,?fecha,?Paciente_idPaciente,?Especialista_idEspecialista)";
         cmd.Parameters.Add("?TipoDeTratamiento", MySqlDbType.VarChar).Value = tipoTratamiento;
-        cmd.Parameters.Add("?duracion", MySqlDbType.Int32).Value = duracion;
+        cmd.Parameters.Add("?puntuacion", MySqlDbType.Int32).Value = puntuacion;
         cmd.Parameters.Add("?duraciontotal", MySqlDbType.VarChar).Value = duraciontotal;
         cmd.Parameters.Add("?fecha", MySqlDbType.Date).Value = monthVar;
         cmd.Parameters.Add("?Paciente_idPaciente", MySqlDbType.Int32).Value = idPaciente;

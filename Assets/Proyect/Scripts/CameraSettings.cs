@@ -22,13 +22,20 @@ public class CameraSettings : MonoBehaviour
         idPaciente = eyes[2];
         idEspecialista = eyes[3];
         /*Establece que ve cada ojo*/
+    
         if(!eyes[0].Equals("0") || !eyes[1].Equals("0")){
             if(gameObject.transform.name == "LeftEye" && !eyes[0].Equals("0")){ // Ojo Izquierdo con estrabismo
                 cam.cullingMask = 1 << 0 | 1<< 1 | 1 << 2 | 1 << 4 | 1 << 5 | 1 << 8 | 1 << 9;
+                GameObject ReticleRight = GameObject.Find("GvrReticlePointerR");
+                Destroy(ReticleRight);
+                
             }else if(gameObject.transform.name == "RightEye" && !eyes[1].Equals("0")){ // Ojo derecho con estrabismo
                 cam.cullingMask = 1 << 0 | 1<< 1 | 1 << 2 | 1 << 4 | 1 << 5 | 1 << 8 | 1 << 9;
+                GameObject ReticleLeft = GameObject.Find("GvrReticlePointerL");
+                Destroy(ReticleLeft);
             }else{
                 cam.cullingMask = 1 << 0 | 1<< 1 | 1 << 2 | 1 << 4 | 1 << 5 | 1 << 9;
+                gameObject.tag = "Untagged"; 
             }
         }else{
             cam.cullingMask = 1 << 0 | 1<< 2 | 1 << 5 | 1 << 9 | 1 << 10 | 1 << 11 | 1 << 12 | 1 << 16;
