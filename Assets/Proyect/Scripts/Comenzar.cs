@@ -46,6 +46,8 @@ public class Comenzar : MonoBehaviour
         Time.timeScale = 1;    
         PanelPuntuacion.gameObject.SetActive(true);    
         Reloj tiempo = GameObject.Find("Reloj").GetComponent<Reloj>();
-        tiempo.tiempoMostrarEnSegundos = 0;   
+        tiempo.tiempoMostrarEnSegundos = tiempo.tiempoInicial;   
+        Text t = reloj.GetComponent<Text>();
+        t.color = new Color(1f, 1f, 1f, 1f);
     }
 }

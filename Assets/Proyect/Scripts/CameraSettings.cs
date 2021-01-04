@@ -12,6 +12,7 @@ public class CameraSettings : MonoBehaviour
     Camera cam;
     public string idPaciente;
     public string idEspecialista;
+    public string tiempoBD;
     void Awake()
     {
         cam = gameObject.GetComponent<Camera>();
@@ -19,8 +20,10 @@ public class CameraSettings : MonoBehaviour
         ConsultasSQL sql = new ConsultasSQL();
         string[] eyes = sql.getAngleEyes();
         //Debug.Log("Ojos: " + eyes[0] + "--" +eyes[1]);
+        /*Variables de la BD*/
         idPaciente = eyes[2];
         idEspecialista = eyes[3];
+        tiempoBD = eyes[4];
         /*Establece que ve cada ojo*/
     
         if(!eyes[0].Equals("0") || !eyes[1].Equals("0")){
