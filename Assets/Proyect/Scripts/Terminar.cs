@@ -64,6 +64,10 @@ public class Terminar : MonoBehaviour
         string duracion = minutos.ToString("00") + ":" + segundos.ToString("00");
         Debug.Log(duracion);
         /**/
+
+        reloj.tiempoMostrarEnSegundos = reloj.tiempoInicial;
+        Time.timeScale = 0; // Se detiene el tiempo
+
         string puntuacion = Puntuacion.text.ToString();
         sql.insertTratamiento("Calentamiento",puntuacion,duracion,paciente,especialista);
         
