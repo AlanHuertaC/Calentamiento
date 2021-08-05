@@ -16,7 +16,7 @@ public class ConsultasSQL
         MySqlConnection conn = conexion.getConnection();
         try
         {
-           string sql = "SELECT desviacion_izq, desviacion_der, idPaciente, idEspecialista  FROM ojo o, api a WHERE o.Paciente_idPaciente = a.idPaciente";
+           string sql = "SELECT desviacion_izq, desviacion_der, idPaciente, idEspecialista, tiempo  FROM prediagnostico pre, api a WHERE pre.Paciente_idPaciente = a.idPaciente";
 
            MySqlCommand cmd = new MySqlCommand(sql, conn);
            MySqlDataReader rdr = cmd.ExecuteReader();
@@ -28,8 +28,9 @@ public class ConsultasSQL
                 ids[1] = rdr[1].ToString();
                 ids[2] = rdr[2].ToString();
                 ids[3] = rdr[3].ToString();
+                ids[4] = rdr[4].ToString();
             }
-           
+
             rdr.Close();
 
            Debug.Log("Consulta exitosa");
